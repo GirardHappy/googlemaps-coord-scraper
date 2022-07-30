@@ -36,7 +36,7 @@ implementation 'org.jsoup:jsoup:1.15.1'
 Devoloper: Girard
 */
 
-public fun Coord(p:Array<Int>,f:String):Array<Int>?
+ public fun Coord(p:Array<Int>,f:String):Array<Int>?
 {
     //Init var
     var latp:String = p[0].toString()
@@ -44,7 +44,7 @@ public fun Coord(p:Array<Int>,f:String):Array<Int>?
     var r:Array<Int>? = null
     var i:Int=0
     var s:String
-    var d:Document = null
+    var d:Document
 
     //Simple coords control before start
     if(p.size!=2)
@@ -60,9 +60,11 @@ public fun Coord(p:Array<Int>,f:String):Array<Int>?
         d=Jsoup.connect("https://www.google.com/maps/search/${f}/@${latp},${lngp},14z").header("Cookie","CONSENT=YES+cb.20210418-17-p0.it+FX+917;").get()
     }catch(e:java.net.UnknownHostException){
         Log.w("Coord in MainActy","Connessione a Internet Assente")
+        return r
     }
     catch(e:Exception){
         Log.w("Coord in MainActy", "$e")
+        return r
     }
 
     //Parse the document to extract the coordinates
@@ -74,6 +76,7 @@ public fun Coord(p:Array<Int>,f:String):Array<Int>?
     s=s.substring(i+1)
     s=s.substring(0,s.indexOf(']'))
     r=arrayOf(s.substring(0,s.indexOf(",")).toInt(),s.substring(s.indexOf(",")+1).toInt())
+
 
     return r
 }
