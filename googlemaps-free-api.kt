@@ -1,5 +1,7 @@
 /* 
 This Kotlin function allows you to scrap from google maps the coordinates of the nearest place
+
+FOR STUDY PURPOSE ONLY, BECAUSE BREAK THE GOOGLE MAPS TOS
 --------------------------------------------------------------------------------------
 Parameters
 
