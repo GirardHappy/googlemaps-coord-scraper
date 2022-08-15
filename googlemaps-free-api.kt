@@ -13,12 +13,6 @@ f:String string to search on google maps
 
 destinationLocation: Location | destination location with latitude and longitude
 --------------------------------------------------------------------------------------
-To run this function you must run it on another thread, in kotlin it's easy:
-
-thread{
-    Coord(ArrayOfCoord,StringToSearch)
-}
---------------------------------------------------------------------------------------
 This function use the jsoup library (https://jsoup.org/)
 and for this reason to run this function you must import:
 
